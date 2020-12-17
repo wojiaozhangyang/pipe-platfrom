@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "491189e3-24dc-4bc6-b190-f6959b8dedad",
+		"name": "OperationPlan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "workorderTemplate",
+			"item": [
+				{
+					"name": "工单模板列表",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}ops-center/workorderTemplate/list",
+							"host": [
+								"{{url}}ops-center"
+							],
+							"path": [
+								"workorderTemplate",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "工单模板分页",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"page\":1,\n\"limit\":111\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}ops-center/workorderTemplate/page",
+							"host": [
+								"{{url}}ops-center"
+							],
+							"path": [
+								"workorderTemplate",
+								"page"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加工单模板",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\":\"工单名称\",\n\"acceptUserId\":\"1\",\n\"acceptUserName\":\"admin\",\n\"level\":\"三级\",\n\"flowDiagram\":\"流程图名称\"\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}ops-center/workorderTemplate/saveOrUpdate",
+							"host": [
+								"{{url}}ops-center"
+							],
+							"path": [
+								"workorderTemplate",
+								"saveOrUpdate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "保存或更新",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"运维计划名称\",\n\t\"content\":\"运维内容\",\n\t\"site\":\"地点\",\n\t\"cyclesType\":\"1\",\n\t\"cyclesTime\":\"35\",\n\t\"planStartTime\":\"2020-07-01 18:49:58\",\n\t\"planEndTime\":\"2020-07-03 18:59:58\",\n\t\"workorderTemplateId\":3\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:9900/ops-center/operationplan/save",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9900",
+					"path": [
+						"ops-center",
+						"operationplan",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "分页列表",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"page\":1,\n\t\"limit\":111\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}ops-center/operationplan/page",
+					"host": [
+						"{{url}}ops-center"
+					],
+					"path": [
+						"operationplan",
+						"page"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}ops-center/operationplan/delete?id=3334",
+					"host": [
+						"{{url}}ops-center"
+					],
+					"path": [
+						"operationplan",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3334"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据id查找",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}ops-center/operationplan/find?id=1230880937173184515",
+					"host": [
+						"{{url}}ops-center"
+					],
+					"path": [
+						"operationplan",
+						"find"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1230880937173184515"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

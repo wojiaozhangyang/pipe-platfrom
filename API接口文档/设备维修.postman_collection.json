@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "3ab10c7b-ca57-471f-97b0-e19f1f1861a3",
+		"name": "设备维修",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "保存或更新",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"deviceCapsuleName\": \"string\",\r\n  \"deviceLocation\": \"string\",\r\n  \"deviceName\": \"string\",\r\n  \"maintenanceContent\": \"string\",\r\n  \"maintenanceTime\": \"2020-05-22T10:31:03.498Z\",\r\n  \"maintenanceUserName\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}device-center/DeviceMaintenanceRecord/saveOrUpdate",
+					"host": [
+						"{{url}}device-center"
+					],
+					"path": [
+						"DeviceMaintenanceRecord",
+						"saveOrUpdate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":1,\n\t\"parentId\":0,\n\t\"name\":\"舱体1\",\n\t\"spaceGroup\":\"一组\",\n\t\"location\":\"地下一层\",\n\t\"xAxis\":\"255\",\n\t\"yAxis\":\"255\",\n\t\"zAxis\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}device-center/DeviceMaintenanceRecord/delete?id=20",
+					"host": [
+						"{{url}}device-center"
+					],
+					"path": [
+						"DeviceMaintenanceRecord",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "分页",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"page\":1,\n\t\"limit\":11\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}device-center/DeviceMaintenanceRecord/page",
+					"host": [
+						"{{url}}device-center"
+					],
+					"path": [
+						"DeviceMaintenanceRecord",
+						"page"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查找",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "{{url}}device-center/DeviceMaintenanceRecord/find?id=1",
+					"host": [
+						"{{url}}device-center"
+					],
+					"path": [
+						"DeviceMaintenanceRecord",
+						"find"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"description": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

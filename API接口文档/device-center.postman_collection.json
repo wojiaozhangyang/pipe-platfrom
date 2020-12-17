@@ -1,0 +1,1440 @@
+{
+	"info": {
+		"_postman_id": "7f2175c0-5fa4-4b7d-a301-44f2a6f881cf",
+		"name": "device-center",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "device-parameter",
+			"item": [
+				{
+					"name": "保存 活更新",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"attribute\": \"[plcaddress,device,threshold]\",\r\n  \"gatheredData\": \"[temperature,humidity]\",\r\n  \"name\": \"温湿度检测仪\",\r\n  \"parameter\": \"PLC-ATM\",\r\n  \"type\": \"atmospheric\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api-device/deviceParameter/saveOrUpdate",
+							"host": [
+								"{{url}}api-device"
+							],
+							"path": [
+								"deviceParameter",
+								"saveOrUpdate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:7200/parameter/QueryByType?type=oxygen",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api-device/deviceParameter/QueryByType?type=oxygen",
+							"host": [
+								"{{url}}api-device"
+							],
+							"path": [
+								"deviceParameter",
+								"QueryByType"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "oxygen"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:7200/parameter/delete?id=1249903598201024513",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api-device/deviceParameter/delete?id=1249903598201024513",
+							"host": [
+								"{{url}}api-device"
+							],
+							"path": [
+								"deviceParameter",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1249903598201024513"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:7200/parameter/edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"page\":\"1\",\r\n  \"limit\": \"111\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api-device/deviceParameter/page",
+							"host": [
+								"{{url}}api-device"
+							],
+							"path": [
+								"deviceParameter",
+								"page"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "同步device数据",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:7202/deviceParameter/deviceSync",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7202",
+							"path": [
+								"deviceParameter",
+								"deviceSync"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "device",
+			"item": [
+				{
+					"name": "舱体设备列表",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-userid-header",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "x-user-header",
+								"value": "admin",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "x-tenant-header",
+								"value": "web",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"capsule\": 1111111111111,\r\n  \"capsuleLocation\": \"地下一层\",\r\n  \"createTime\": \"2020-04-16T05:22:29.531Z\",\r\n  \"producedTime\": \"2010-04-16T05:22:29.531Z\",\r\n  \"healthIndex\": 99,\r\n  \"unitType\": \"东风100型号\",\r\n  \"name\": \"O2检测仪\",\r\n  \"parameters\": \"string\",\r\n  \"protocol\": \"PLC-OXYGEN\",\r\n  \"status\": 1,\r\n  \"threshold\": \"[85,98]\",\r\n  \"type\": \"oxygen\",\r\n  \"warranty\": \"2023年1月\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api-device/device/list",
+							"host": [
+								"{{url}}api-device"
+							],
+							"path": [
+								"device",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "舱体设备分页",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-userid-header",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "x-user-header",
+								"value": "admin",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-header",
+								"value": "web",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"page\":1,\r\n\"limit\":999\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}device-center/device/page",
+							"host": [
+								"{{url}}device-center"
+							],
+							"path": [
+								"device",
+								"page"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新设备数据到redis",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-userid-header",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "x-user-header",
+								"value": "admin",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-header",
+								"value": "web",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}device-center/device/saveBeachRedis",
+							"host": [
+								"{{url}}device-center"
+							],
+							"path": [
+								"device",
+								"saveBeachRedis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-userid-header",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "x-user-header",
+								"type": "text",
+								"value": "admin"
+							},
+							{
+								"key": "x-tenant-header",
+								"type": "text",
+								"value": "web"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"current\":1,\n\t\"size\":11\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:7200/device/delete?id=1250723906688499713",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "7200",
+							"path": [
+								"device",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1250723906688499713"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查找",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-userid-header",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "x-user-header",
+								"value": "admin",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-header",
+								"value": "web",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":1250723906688499713\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}device-center/device/find?id=11",
+							"host": [
+								"{{url}}device-center"
+							],
+							"path": [
+								"device",
+								"find"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据类型查找",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-userid-header",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "x-user-header",
+								"value": "admin",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-header",
+								"value": "web",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":1250723906688499713\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}device-center/device/queryDeviceByType",
+							"host": [
+								"{{url}}device-center"
+							],
+							"path": [
+								"device",
+								"queryDeviceByType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "保存设备",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"结构变形/位移控测仪\",\r\n  \"type\": \"structural\",\r\n  \"protocol\": \"PLC-STR\",\r\n  \"parameters\":\"[plcaddress,device]\",\r\n  \"capsule\": 16,\r\n  \"capsuleGroup\":\"\",\r\n  \"capsuleLocation\": \"防火段2\",\r\n  \"producedTime\": \"2010-04-16T05:22:29.531Z\",\r\n  \"healthIndex\": 100,\r\n  \"unitType\": \"\",\r\n  \"status\": 1,\r\n  \"threshold\": \"\",\r\n  \"warranty\": \"2023年1月\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}device-center/device/saveOrUpdate",
+							"host": [
+								"{{url}}device-center"
+							],
+							"path": [
+								"device",
+								"saveOrUpdate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8000/oauth/user/token?deviceId=B511D39C-B42D-4DBB-BF99-82B6DDA16FA6&validCode=tanf",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "web",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "web",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "client_id",
+								"value": "web",
+								"equals": true,
+								"disabled": true
+							},
+							{
+								"key": "client_secret",
+								"value": "web",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "imageCode",
+								"value": "uzub",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "scope",
+									"value": "all",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "client_id",
+									"value": "web",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/oauth/user/token?deviceId=B511D39C-B42D-4DBB-BF99-82B6DDA16FA6&validCode=tanf",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"oauth",
+								"user",
+								"token"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"disabled": true
+								},
+								{
+									"key": "scope",
+									"value": "all",
+									"disabled": true
+								},
+								{
+									"key": "client_id",
+									"value": "web",
+									"disabled": true
+								},
+								{
+									"key": "client_secret",
+									"value": "web",
+									"disabled": true
+								},
+								{
+									"key": "deviceId",
+									"value": "B511D39C-B42D-4DBB-BF99-82B6DDA16FA6"
+								},
+								{
+									"key": "validCode",
+									"value": "tanf"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:9900/api-uaa/oauth/openId/token?openId=123",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "web",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "web",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "client_id",
+								"value": "web",
+								"equals": true,
+								"disabled": true
+							},
+							{
+								"key": "client_secret",
+								"value": "web",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "deviceId",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "openId",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "imageCode",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "scope",
+									"value": "all",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "client_id",
+									"value": "web",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9900/api-uaa/oauth/openId/token?openId=123",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9900",
+							"path": [
+								"api-uaa",
+								"oauth",
+								"openId",
+								"token"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"disabled": true
+								},
+								{
+									"key": "scope",
+									"value": "all",
+									"disabled": true
+								},
+								{
+									"key": "client_id",
+									"value": "webApp",
+									"disabled": true
+								},
+								{
+									"key": "client_secret",
+									"value": "webApp",
+									"disabled": true
+								},
+								{
+									"key": "openId",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:9900/api-uaa/validata/code/B511D39C-B42D-4DBB-BF99-82B6DDA16FA6",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:9900/api-uaa/validata/code/B511D39C-B42D-4DBB-BF99-82B6DDA16FA6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9900",
+							"path": [
+								"api-uaa",
+								"validata",
+								"code",
+								"B511D39C-B42D-4DBB-BF99-82B6DDA16FA6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:9900/api-user/users?page=1&limit=11",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "c7739766-9f54-423b-b73a-21d6ed3132c2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9900/api-user/users?page=1&limit=11",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9900",
+							"path": [
+								"api-user",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:9900/api-uaa/validata/code/B511D39C-B42D-4DBB-BF99-82B6DDA16FA6",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:9900/api-uaa/users/current",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9900",
+							"path": [
+								"api-uaa",
+								"users",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:9900/api-user/users?page=1&limit=11",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9900/api-user/userBydeptId?deptId=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9900",
+							"path": [
+								"api-user",
+								"userBydeptId"
+							],
+							"query": [
+								{
+									"key": "deptId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:9900/api-user/dept/deptUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:9900/api-user/dept/deptUser",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9900",
+							"path": [
+								"api-user",
+								"dept",
+								"deptUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改密码",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1276859263874584578\",\r\n    \"oldPassword\": \"123\",\r\n    \"newPassword\": \"qqq\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:9900/api-user/users/password",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9900",
+							"path": [
+								"api-user",
+								"users",
+								"password"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "spaceManage",
+			"item": [
+				{
+					"name": "保存或更新",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":18,\n\t\"@parentId\":1,\n\t\"#name\":\"舱体1\",\n\t\"#spaceGroup\":\"一组\",\n\t\"#location\":\"地下一层\",\n\t\"#xAxis\":\"255\",\n\t\"##yAxis\":\"255\",\n\t\"zAxis\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}device-center/SpaceManage/saveOrUpdate",
+							"host": [
+								"{{url}}device-center"
+							],
+							"path": [
+								"SpaceManage",
+								"saveOrUpdate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"page\":1,\n\t\"limit\":11\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}device-center/SpaceManage/page",
+							"host": [
+								"{{url}}device-center"
+							],
+							"path": [
+								"SpaceManage",
+								"page"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查找",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
+						"url": {
+							"raw": "{{url}}device-center/SpaceManage/find?id=1",
+							"host": [
+								"{{url}}device-center"
+							],
+							"path": [
+								"SpaceManage",
+								"find"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":1,\n\t\"parentId\":0,\n\t\"name\":\"舱体1\",\n\t\"spaceGroup\":\"一组\",\n\t\"location\":\"地下一层\",\n\t\"xAxis\":\"255\",\n\t\"yAxis\":\"255\",\n\t\"zAxis\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}device-center/SpaceManage/delete?id=20",
+							"host": [
+								"{{url}}device-center"
+							],
+							"path": [
+								"SpaceManage",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "父目录的list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"page\":1,\n\t\"limit\":11\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}device-center/SpaceManage/parentList",
+							"host": [
+								"{{url}}device-center"
+							],
+							"path": [
+								"SpaceManage",
+								"parentList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新kongj数据到redis",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-userid-header",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "x-user-header",
+								"value": "admin",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-header",
+								"value": "web",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}device-center/device/saveBeachRedis",
+							"host": [
+								"{{url}}device-center"
+							],
+							"path": [
+								"device",
+								"saveBeachRedis"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Parameter",
+			"item": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "videoinfo",
+			"item": [
+				{
+					"name": "http://127.0.0.1:9900/api-device/VideoInfo/list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9900/api-device/VideoInfo/list",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9900",
+							"path": [
+								"api-device",
+								"VideoInfo",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

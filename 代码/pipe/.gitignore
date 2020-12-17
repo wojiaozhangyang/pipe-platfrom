@@ -1,0 +1,14 @@
+.idea/
+logs/
+target/
+.txlcn/
+/pipe-register/nacos/
+*.iml
+*.versionsBackup
+*.xml.bak
+rebel.xml
+derby.log
+*.ctrl
+*.dat
+*.lck
+*.log

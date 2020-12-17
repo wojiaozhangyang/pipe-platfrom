@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "42b71c99-201b-477e-bc19-1a41bfe92b16",
+		"name": "绩效",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "考核标准",
+			"item": [
+				{
+					"name": "全部的列表",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearea {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"deptId\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api-ops/EvaluationStandard/list",
+							"host": [
+								"{{url}}api-ops"
+							],
+							"path": [
+								"EvaluationStandard",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "保存或更新",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"deptId\": \"1\",\r\n  \"description\": \"这是描述信息\",\r\n  \"name\": \"五项方针\",\r\n  \"parentId\": 1,\r\n  \"score\": 80\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}ops-center/EvaluationStandard/saveOrUpdate",
+							"host": [
+								"{{url}}ops-center"
+							],
+							"path": [
+								"EvaluationStandard",
+								"saveOrUpdate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据id删除",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"id\":\"\",\n\"deptId\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api-ops/ExternalStaffPipe/delete",
+							"host": [
+								"{{url}}api-ops"
+							],
+							"path": [
+								"ExternalStaffPipe",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量保存或更新",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\t[\r\n\t\t\t\t{\r\n\t\t\t\t\t\"deptId\": \"1\",\r\n\t\t\t\t\t\"description\": \"\",\r\n\t\t\t\t\t\"name\": \"一个 全面\",\r\n\t\t\t\t\t\"parentId\": 1,\r\n\t\t\t\t\t\"score\": \"20\"\r\n\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"deptId\": \"1\",\r\n\t\t\t\t\t\"description\": \"2\",\r\n\t\t\t\t\t\"name\": \"二个分支\",\r\n\t\t\t\t\t\"parentId\": 1,\r\n\t\t\t\t\t\"score\": \"10\"\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"deptId\": \"1\",\r\n\t\t\t\t\t\"description\": \"3121\",\r\n\t\t\t\t\t\"name\": \"三个推广\",\r\n\t\t\t\t\t\"parentId\": 1,\r\n\t\t\t\t\t\"score\": \"20\"\r\n\t\t\t\t}\r\n\t\t\r\n\t]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}ops-center/EvaluationStandard/saveOrUpdateBatch",
+							"host": [
+								"{{url}}ops-center"
+							],
+							"path": [
+								"EvaluationStandard",
+								"saveOrUpdateBatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "导出",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"deptId\": \"1\",\r\n  \"description\": \"这是描述信息\",\r\n  \"name\": \"五项方针\",\r\n  \"parentId\": 1,\r\n  \"score\": 80\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}ops-center/EvaluationStandard/export",
+							"host": [
+								"{{url}}ops-center"
+							],
+							"path": [
+								"EvaluationStandard",
+								"export"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "绩效打分",
+			"item": [
+				{
+					"name": "添加",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"王五\",\n\t\"cardType\":\"身份证\",\n\t\"cardNumber\":\"1402111199988525486\",\n\t\"phone\": 1825822,\n\t\"location\":\"地下一层\",\n\t\"lableId\":\"1\",\n\t\"scheduleEndTime\":\"2020-05-12 19:21:04\",\n\t\"visitStartTime\":\"2020-05-12 19:21:04\"\n\t\t\n}\n\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api-ops/scorePerformance/saveOrUpdate",
+							"host": [
+								"{{url}}api-ops"
+							],
+							"path": [
+								"scorePerformance",
+								"saveOrUpdate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "全部的列表",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearea {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"deptId\":1,\n\t\"userId\":1\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}ops-center/EvaluationHistory/list",
+							"host": [
+								"{{url}}ops-center"
+							],
+							"path": [
+								"EvaluationHistory",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "c454e819-652a-4fcc-9ab3-31f6895d8d41",
+		"name": "menu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "全部菜单",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}api-user/menus/findAlls",
+					"host": [
+						"{{url}}api-user"
+					],
+					"path": [
+						"menus",
+						"findAlls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取菜单以及顶级菜单",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}api-user/menus/findAlls",
+					"host": [
+						"{{url}}api-user"
+					],
+					"path": [
+						"menus",
+						"findAlls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加更新",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}api-user/menus/findAlls",
+					"host": [
+						"{{url}}api-user"
+					],
+					"path": [
+						"menus",
+						"findAlls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api-user/menus/delete?id=xx1111111111",
+					"host": [
+						"{{url}}api-user"
+					],
+					"path": [
+						"menus",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "xx1111111111"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据roleId获取对应的菜单",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api-user/menus/1/menus",
+					"host": [
+						"{{url}}api-user"
+					],
+					"path": [
+						"menus",
+						"1",
+						"menus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据roleCodes获取对应的权限",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api-user/menus/1",
+					"host": [
+						"{{url}}api-user"
+					],
+					"path": [
+						"menus",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

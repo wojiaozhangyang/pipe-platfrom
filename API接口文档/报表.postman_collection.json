@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "88bd726c-9c60-4b37-9c1f-19ca8d647812",
+		"name": "报表",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "今日工单完成情况",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\":\"day\",\r\n    \"#type\":\"day日,week周，mouth月,quarter季度，year年\",\r\n    \"startTime\":\"2020-07-01 00:00:00\",\r\n    \"endTime\":\"2020-07-05 00:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:7201/repoert/workorderCondition",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7201",
+					"path": [
+						"repoert",
+						"workorderCondition"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "保洁",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\":\"week\",\r\n    \"#type\":\"day日,week周，mouth月,quarter季度，year年\",\r\n    \"startTime\":\"2020-07-01 00:00:00\",\r\n    \"endTime\":\"2020-07-05 00:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:7201/repoert/workorderClean",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7201",
+					"path": [
+						"repoert",
+						"workorderClean"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "巡检",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:7201/repoert/workorderPatrol",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7201",
+					"path": [
+						"repoert",
+						"workorderPatrol"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "维修",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:7201/repoert/workordermMintain",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7201",
+					"path": [
+						"repoert",
+						"workordermMintain"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

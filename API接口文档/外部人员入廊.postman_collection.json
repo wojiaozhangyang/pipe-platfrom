@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "a6a3bf04-d007-4d6e-a09f-46de65173f08",
+		"name": "外部人员入廊",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "添加",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"王五\",\n\t\"cardType\":\"身份证\",\n\t\"cardNumber\":\"1402111199988525486\",\n\t\"phone\": 1825822,\n\t\"location\":\"地下一层\",\n\t\"lableId\":\"1\",\n\t\"scheduleEndTime\":\"2020-05-12 19:21:04\",\n\t\"visitStartTime\":\"2020-05-12 19:21:04\"\n\t\t\n}\n\n\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api-ops/ExternalStaffPipe/saveOrUpdate",
+					"host": [
+						"{{url}}api-ops"
+					],
+					"path": [
+						"ExternalStaffPipe",
+						"saveOrUpdate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据id查找",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}api-ops/ExternalStaffPipe/find?id=2",
+					"host": [
+						"{{url}}api-ops"
+					],
+					"path": [
+						"ExternalStaffPipe",
+						"find"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据id删除",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}api-ops/ExternalStaffPipe/delete?id=2",
+					"host": [
+						"{{url}}api-ops"
+					],
+					"path": [
+						"ExternalStaffPipe",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "全部的列表",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearea {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"page\":1,\n\t\"limit\":111\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api-ops/ExternalStaffPipe/page",
+					"host": [
+						"{{url}}api-ops"
+					],
+					"path": [
+						"ExternalStaffPipe",
+						"page"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "审批工单-通过驳回",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"verify\":true,\n\t\"id\":1280036055527567361\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api-ops/ExternalStaffPipe/audit",
+					"host": [
+						"{{url}}api-ops"
+					],
+					"path": [
+						"ExternalStaffPipe",
+						"audit"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

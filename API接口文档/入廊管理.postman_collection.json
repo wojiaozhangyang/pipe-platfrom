@@ -1,0 +1,364 @@
+{
+	"info": {
+		"_postman_id": "c4ad8c4c-10f9-4d7a-aa99-e1a430368f19",
+		"name": "入廊管理",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "添加",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"location\":\"地下一层\",\n\t\"description\":\"描述\",\n\t\"entryTime\":\"2020-05-12 19:21:04\",\n\t\"acceptUserId\":1,\n\t\"acceptUserName\":\"admin\",\n\t\"actualDepartureTime\":\"2020-05-12 19:21:04\",\n\t\"ruleDepartureTime\":\"2020-05-12 19:21:04\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api-ops/staffpipe/add",
+					"host": [
+						"{{url}}api-ops"
+					],
+					"path": [
+						"staffpipe",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"\",\n\t\"location\":\"地下一层\",\n\t\"description\":\"描述\",\n\t\"entryTime\":\"2020-05-12 19:21:04\",\n\t\"type\":1, \n\t\"#type\":\"1内部，2外部\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api-ops/staffpipe/edit",
+					"host": [
+						"{{url}}api-ops"
+					],
+					"path": [
+						"staffpipe",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据id查找",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1278627714242777089\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api-ops/staffpipe/find",
+					"host": [
+						"{{url}}api-ops"
+					],
+					"path": [
+						"staffpipe",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据id删除",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"1278635689448914945\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api-ops/staffpipe/delete",
+					"host": [
+						"{{url}}api-ops"
+					],
+					"path": [
+						"staffpipe",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "挂起和激活流程----我觉得这个功能可以不要",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearea {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"processInstanceId\":\"50e2ecf2-9443-11ea-868a-9829a6889c9b\",\n\t\"type\":true,\n\t\"#type\":\"说明。type为boolean型 ，true激活，false 挂起\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api-ops/staffpipe/operation",
+					"host": [
+						"{{url}}api-ops"
+					],
+					"path": [
+						"staffpipe",
+						"operation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "审批工单-通过驳回",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"taskId\":\"885b0fb5-91f7-11ea-9c99-9829a6889c9b\",\n\t\"verify\":true,\n\t\"id\":80\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api-ops/staffpipe/audit",
+					"host": [
+						"{{url}}api-ops"
+					],
+					"path": [
+						"staffpipe",
+						"audit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "全部的列表",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearea {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"page\":1,\n\t\"limit\":111\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api-ops/staffpipe/findAllByPage",
+					"host": [
+						"{{url}}api-ops"
+					],
+					"path": [
+						"staffpipe",
+						"findAllByPage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取流程图",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api-ops/staffpipe/getImage",
+					"host": [
+						"{{url}}api-ops"
+					],
+					"path": [
+						"staffpipe",
+						"getImage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "部署工单--只调用一次",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:9900/api-ops/worker/deploy?bpmnName=staff&deployName=入廊管理",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9900",
+					"path": [
+						"api-ops",
+						"worker",
+						"deploy"
+					],
+					"query": [
+						{
+							"key": "bpmnName",
+							"value": "staff"
+						},
+						{
+							"key": "deployName",
+							"value": "入廊管理"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询某一个流程进程",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"processInstanceId\":\"d970de9c-9379-11ea-a342-9829a6889c9b\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api-ops/worker/findHistoryProcessInstance",
+					"host": [
+						"{{url}}api-ops"
+					],
+					"path": [
+						"worker",
+						"findHistoryProcessInstance"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
